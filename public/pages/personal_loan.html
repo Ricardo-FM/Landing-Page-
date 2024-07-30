@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Loan Application</title>
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to your main CSS file for common styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">Assurance Partners LLC</div>
+        <ul class="nav-links">
+            <li><a href="/pages/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Personal Loan Form</h1>
+    </header>
+
+    <div class="form-container">
+
+        <form id="loanForm" class="form" method="POST" action="/personal_loan/submit">
+
+            <!-- Personal Information -->
+            <fieldset class="form-section current">
+                <legend>Personal Information</legend>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" minlength="2" maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" minlength="2" maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="ssn">SSN (Social Security Number)</label>
+                    <input type="text" id="ssn" name="ssn" pattern="\d{9}" required>
+                    <small>Format: 9 digits</small>
+                </div>
+                <div class="form-group">
+                    <label for="phoneHome">Phone</label>
+                    <input type="text" id="phoneHome" name="phoneHome" pattern="\d{10}" required>
+                    <small>Format: 10 digits</small>
+                </div>
+                <div class="form-group">
+                    <label for="address1">Address 1</label>
+                    <input type="text" id="address1" name="address1" minlength="3" maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" id="zipCode" name="zipCode" pattern="\d{5}" required>
+                    <small>Format: 5 digits</small>
+                </div>
+                <div class="form-group">
+                    <label for="driversLicense">Driver's License</label>
+                    <input type="text" id="driversLicense" name="driversLicense" minlength="3" maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="driversLicenseState">Driver's License State</label>
+                    <input type="text" id="driversLicenseState" name="driversLicenseState" minlength="2" maxlength="2" required>
+                </div>
+                <button type="button" class="next-button">Next</button>
+            </fieldset>
+
+            <!-- Employment & Assets Information -->
+            <fieldset class="form-section">
+                <legend>Income Information</legend>
+                <div id="sectionIncome" class="hidden">
+                    <div class="form-group">
+                        <label for="requestedAmount">Requested Amount</label>
+                        <input type="number" id="requestedAmount" name="requestedAmount" min="100" max="50000" required>
+                        <small>Range: 100 - 50,000</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="loanPurpose">Loan Purpose</label>
+                        <select id="loanPurpose" name="loanPurpose" required>
+                            <option value="Debtconsolidation">Debt Consolidation</option>
+                            <option value="Creditcard">Credit Card</option>
+                            <option value="Homeimprovement">Home Improvement</option>
+                            <option value="Studentloanconsolidation">Student Loan Consolidation</option>
+                            <option value="Majorpurchase">Major Purchase</option>
+                            <option value="Car">Car</option>
+                            <option value="Greenloan">Green Loan</option>
+                            <option value="Business">Business</option>
+                            <option value="Vacation">Vacation</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Relocation">Relocation</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Household">Household</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="credit">Credit Score</label>
+                        <select id="credit" name="credit" required>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Verygood">Very Good</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Poor">Poor</option>
+                            <option value="Verypoor">Very Poor</option>
+                            <option value="Unsure">Unsure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ownHome">Own Home</label>
+                        <select id="ownHome" name="ownHome" required>
+                            <option value="True">True</option>
+                            <option value="1">1</option>
+                            <option value="Yes">Yes</option>
+                            <option value="False">False</option>
+                            <option value="0">0</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="employerName">Employer Name</label>
+                        <input type="text" id="employerName" name="employerName" minlength="3" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="monthsAtCompany">Months at Company</label>
+                        <input type="number" id="monthsAtCompany" name="monthsAtCompany" min="0" max="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="incomeType">Income Type</label>
+                        <select id="incomeType" name="incomeType" required>
+                            <option value="employed">Employed</option>
+                            <option value="selfemployed">Self-Employed</option>
+                            <option value="military">Military</option>
+                            <option value="benefits">Benefits</option>
+                            <option value="retired">Retired</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="monthlyIncome">Monthly Income</label>
+                        <input type="number" id="monthlyIncome" name="monthlyIncome" min="1" max="99999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="payDate1">Pay Date 1</label>
+                        <input type="date" id="payDate1" name="payDate1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="payFrequency">Pay Frequency</label>
+                        <select id="payFrequency" name="payFrequency" required>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Biweekly">Bi-Weekly</option>
+                            <option value="Semimonthly">Semi-Monthly</option>
+                            <option value="Monthly">Monthly</option>
+                        </select>
+                    </div>
+                <button type="button" class="prev-button">Back</button>
+                <button type="button" class="next-button">Next</button>
+            </fieldset>
+
+            <!-- Payment Details -->
+            <fieldset class="form-section">
+                <legend>Employer Information</legend>
+                <div id="sectionIncome" class="hidden">
+                    <div class="form-group">
+                        <label for="directDeposit">Direct Deposit</label>
+                        <select id="directDeposit" name="directDeposit" required>
+                            <option value="True">True</option>
+                            <option value="1">1</option>
+                            <option value="Yes">Yes</option>
+                            <option value="False">False</option>
+                            <option value="0">0</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankName">Bank Name</label>
+                        <input type="text" id="bankName" name="bankName" minlength="2" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankAccountType">Bank Account Type</label>
+                        <select id="bankAccountType" name="bankAccountType" required>
+                            <option value="Checking">Checking</option>
+                            <option value="Savings">Savings</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankABA">Bank ABA</label>
+                        <input type="text" id="bankABA" name="bankABA" pattern="\d{9}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankAccountNumber">Bank Account Number</label>
+                        <input type="text" id="bankAccountNumber" name="bankAccountNumber" minlength="4" maxlength="30" required>
+                    </div>
+                </div>
+                <button type="button" class="prev-button">Back</button>
+                <button type="submit">Submit</button>
+            </fieldset>
+
+        </form>
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <progress id="progressBar" max="100" value="0"></progress>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>©2024 Assurance Partners LLC. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/form.js"></script> <!-- Link to your JavaScript file if needed -->
+</body>
+</html>       

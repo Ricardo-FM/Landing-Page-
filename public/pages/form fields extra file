@@ -1,0 +1,39 @@
+leads Table
+
+Field Name	Data Type	Parameters:
+
+
+id	SERIAL	PRIMARY KEY
+first_name	TEXT	(50) NOT NULL
+last_name	TEXT	(50) NOT NULL
+email	TEXT	(100) NOT NULL
+date_of_birth	DATE	NOT NULL
+ssn	TEXT	(11) NOT NULL
+phone	TEXT	(15) NOT NULL
+address	String NOT NULL 3 <= LENGTH <= 50
+zip_code	TEXT (5) NOT NULL 
+drivers_license	TEXT	(50) NOT NULL
+drivers_license_state	TEXT	(2) NOT NULL
+requested_loan_amount	Integer	(10, 2) NOT NULL
+loan_purpose	TEXT	NOT NULL 2 <= LENGTH <= 100
+credit	TEXT	(50) NOT NULL
+own_home Boolean NOT NULL True , False
+employer_name	TEXT	(100) NOT NULL
+months_at_company	INT	NOT NULL 1 <= VALUE <= 1000
+income_type	TEXT	(50) NOT NULL
+monthly_income	INT NOT NULL  750 <= VALUE <= 15000
+pay_date	DATE	NOT NULL MM/DD/YYYY
+pay_frequency	TEXT	(50) NOT NULL
+direct_deposit	BOOLEAN	NOT NULL True , False
+bank_name	VARCHAR NOT NULL 2 <= LENGTH <= 50
+bank_account_type	TEXT	(50) NOT NULL 	
+bank_aba String	(9) NOT NULL
+bank_account_number	TEXT NOT NULL 4 <= LENGTH <= 30
+active_military	Boolean NOT NULL True , False
+campaign_id	INT	NOT NULL 	4 <= LENGTH <= 30
+campaign_key	TEXT	NOT NULL 	2 <= LENGTH <= 50
+client_ip	TEXT	(45) NOT NULL 
+lead_type_id	INT	NOT NULL
+status: { type: 'varchar(50)', default: 'new' }
+created_at: { type: 'timestamp', notNull: true, default: pgm.func('current_timestamp') }
+updated_at: { type: 'timestamp', notNull: true, default: pgm.func('current_timestamp') }
